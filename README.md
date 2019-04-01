@@ -1,0 +1,2 @@
+# tomagotchi
+GA Tomagotchi project
