@@ -1,0 +1,43 @@
+body {
+	background-color: lightblue;
+	background: url(https://1001freedownloads.s3.amazonaws.com/vector/412448/preview/wm_06-01.jpg)
+}
+
+
+h1 {
+	text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    background-color: green;
+}
+
+#container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+#toadDiv {
+	display: flex;
+	justify-content: center;
+	background-color: rgba(0, 0, 25, .4)
+}
+
+#tomagotchi {
+	height: 300px;
+	width: 300px;
+}
+
+#buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding-top: 100px;
+}
+
+#feed, #play, #lights {
+	background-color: crimson;
+	height: 100px;
+	width: 100px;
+	border-radius: 30%;
+}
+
