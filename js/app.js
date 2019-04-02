@@ -27,16 +27,23 @@ const game = {
             if (game.time % 60 === 0) {
                 (pet.age += 1);
                 console.log(pet.name + ' is now ' + pet.age + ' years old! Happy birdthday!')
-            }
+            };
             if (game.time % 10 === 0) {
                 pet.hunger += 1
                 pet.boredom += 1
             }
+            if(game.time % 30 === 0){
+            	if(game.lightsOn === true){
+            		pet.sleepiness += 1
+            	}else{
+            		if(game.lightsOn === false){
+            			pet.sleepiness -= 1
+            		}
+            	}
+            };
 
         }, 500)
-
     },
-
     // if amt of time % 3
     // if lights on
     // sleepier
