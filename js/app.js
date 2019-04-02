@@ -14,37 +14,43 @@ const pet = new Tomagotchi('', 0, 0, 0, 0, 'sleep')
 
 const game = {
     lightsOn: true,
+    time: 0,
+
     startGame() {
         console.log('Start Game initiated');
         const petName = $('#petName').val()
         pet.name = petName
         console.log(pet.name + ' has been born!');
-        setInterval(function() {
+		setInterval( () => {
+    			game.time += 1;
+            }, 1000),
+        setInterval(() => {
+        	// if amt of time % 60 
             (pet.age += 1);
-        }, 60000)
-        setInterval(function() {
+            (pet.hunger += 1);
+            (pet.boredom += 1);
+
+            // if amt of time % 3
+            	// if lights on
+            		// sleepier
+        		// else -- lights not on
+        			// get less sleepy
             console.log(pet.name + ' is now ' + pet.age + ' years old! Happy birdthday!');
         }, 60000)
-        setInterval(function() {
-            (pet.hunger += 1);
-        }, 60000)
-        setInterval(function() {
-            (pet.boredom += 1);
-        }, 60000)
     },
-    sleep() {
-        if (game.lightsOn = true) {
-            setInterval(function() {
-                (pet.sleepiness += 1);
-            }, 3000)
-        } else {
-            if (game.lightsOn = false) {
-                setInterval(function() {
-                    (pet.sleepiness -= 1);
-                }, 3000)
-            }
-        }
-    },
+    // sleep() {
+    //     if (game.lightsOn = true) {
+    //         setInterval(function() {
+    //             (pet.sleepiness += 1);
+    //         }, 3000)
+    //     } else {
+    //         if (game.lightsOn = false) {
+    //             setInterval(function() {
+    //                 (pet.sleepiness -= 1);
+    //             }, 3000)
+    //         }
+    //     }
+    // },
     lightSwtich() {
         game.lightsOn = !game.lightsOn
     },
