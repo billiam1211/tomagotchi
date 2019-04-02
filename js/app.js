@@ -26,30 +26,30 @@ const game = {
             $('#time').text(game.time + ' min')
             if (game.time % 60 === 0) {
                 (pet.age += 1);
-                console.log(pet.name + ' is now ' + pet.age + ' years old! Happy birdthday!')
+                $('#age').text('Age: ' + pet.age)
             };
             if (game.time % 10 === 0) {
                 pet.hunger += 1
+                $('#hunger').text('Hunger: ' + pet.hunger)
                 pet.boredom += 1
+                $('#boredom').text('Boredom: ' + pet.boredom)
             }
-            if(game.time % 30 === 0){
-            	if(game.lightsOn === true){
-            		pet.sleepiness += 1
-            	}else{
-            		if(game.lightsOn === false){
-            			pet.sleepiness -= 1
-            		}
-            	}
+            if (game.time % 30 === 0) {
+                if (game.lightsOn === true) {
+                    pet.sleepiness += 1
+                    $('#sleepiness').text('Sleepiness: ' + pet.sleepiness)
+
+                } else {
+                    if (game.lightsOn === false) {
+                        pet.sleepiness -= 1
+                        $('#sleepiness').text('Sleepiness: ' + pet.sleepiness)
+
+                    }
+                }
             };
 
-        }, 500)
+        }, 250)
     },
-    // if amt of time % 3
-    // if lights on
-    // sleepier
-    // else -- lights not on
-    // get less sleepy
-
     lightSwtich() {
         game.lightsOn = !game.lightsOn
     },

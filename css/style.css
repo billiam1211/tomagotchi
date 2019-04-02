@@ -34,10 +34,9 @@ h1 {
     padding-top: 100px;
     padding-bottom: 50px;
 }
-
 #feed,
 #play,
-#lights {
+#lightswitch {
     background-color: crimson;
     height: 100px;
     width: 100px;
@@ -58,4 +57,34 @@ h1 {
 	height: 25px;
 	width: 150px;
 	margin-bottom: 5px;
+	border: solid 3px blue;
 }
+.stats{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-top: 50px
+}
+#age,
+#hunger,
+#sleepiness,
+#boredom {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+    font-family: 'Press Start 2P', cursive;
+	background-color: white;
+	text-align: center;
+	height: 50px;
+	width: 200px;
+	margin-bottom: 5px;
+	border: solid 3px blue;
+}
+
+
+
+
+
+
+
+
