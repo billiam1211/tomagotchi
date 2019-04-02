@@ -8,19 +8,33 @@ class Tomagotchi {
         this.boredom = 0;
         this.sleepiness = 0;
     }
-
 }
 const pet = new Tomagotchi('', 0, 0, 0, 0, 'sleep')
 
 const game = {
     lightsOn: true,
     time: 0,
-
+    movementTimer: 0,
     startGame() {
         console.log('Start Game initiated');
         const petName = $('#petName').val()
         pet.name = petName
         console.log(pet.name + ' has been born!');
+        setInterval(() => {
+        	this.movementTimer += 1;
+            if(this.movementTimer % 1 === 0){
+            	this.moveLeft();
+            }
+            if(this.movementTimer % 3 === 0){
+            	this.moveRight();
+            }
+            if(this.movementTimer % 3 === 0){
+            	this.moveUp();
+            }
+            if(this.movementTimer % 7 === 0){
+            	this.moveDown();
+            }
+        }, 100)
         setInterval(() => {
             this.time += 1;
             $('#time').text(this.time + ' min')
@@ -50,10 +64,7 @@ const game = {
                     }
                 }
             };
-
-
-
-        }, 150)        
+        }, 1000)        
     },
     lightSwtich() {
         this.lightsOn = !this.lightsOn
@@ -72,6 +83,18 @@ const game = {
     },
     death() {
         console.log(pet.name + ' has died...');
+    },
+    moveLeft() {
+    	$('#tomagotchi').css( "padding-left", 0)
+    },
+    moveRight () {
+    	$('#tomagotchi').css( "padding-left", 20)
+    },
+    moveUp () {
+    	$('#tomagotchi').css( "padding-top", 0)
+    },
+    moveDown() {
+	    $('#tomagotchi').css( "padding-top", 10)
     }
 }
 $('#feed').on('click', () => {
@@ -98,28 +121,14 @@ $('form').on('submit', (e) => {
 })
 
 
-
-if (pet.hunger = 10 && pet.boredom = 10){
-	this.death()
-} else {
-	if (pet.hunger = 10 && pet.sleepiness = 10) {
-		this.death()
-	} else{
-		if (pet.sleepiness = 10 && pet.boredom = 10){
-			this.death()
-		}
-	}
-}
-
-
-if (pet.hunger = 10 && pet.boredom = 10) {
-		    this.death()
-		} else {
-		    if (pet.hunger = 10 && pet.sleepiness = 10) {
-		        this.death()
-		    } else {
-		        if (pet.sleepiness = 10 && pet.hunger = 10) {
-		            this.death()
-		        }
-		    }
-		}
+// if (pet.hunger = 10 && pet.boredom = 10) {
+// 		    this.death()
+// 		} else {
+// 		    if (pet.hunger = 10 && pet.sleepiness = 10) {
+// 		        this.death()
+// 		    } else {
+// 		        if (pet.sleepiness = 10 && pet.hunger = 10) {
+// 		            this.death()
+// 		        }
+// 		    }
+// 		}
