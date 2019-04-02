@@ -32,6 +32,7 @@ h1 {
 	flex-direction: row;
 	justify-content: space-around;
 	padding-top: 100px;
+	padding-bottom: 50px;
 }
 
 #feed, #play, #lights {
@@ -39,5 +40,10 @@ h1 {
 	height: 100px;
 	width: 100px;
 	border-radius: 30%;
+}
+
+#form {
+	display: flex;
+	justify-content: space-around;
 }
 
