@@ -21,46 +21,41 @@ const game = {
         const petName = $('#petName').val()
         pet.name = petName
         console.log(pet.name + ' has been born!');
-		setInterval( () => {
-    			game.time += 1;
-            }, 1000),
         setInterval(() => {
-        	// if amt of time % 60 
-            (pet.age += 1);
-            (pet.hunger += 1);
-            (pet.boredom += 1);
+            game.time += 1;
+            $('#time').text(game.time + ' min')
+            if (game.time % 60 === 0) {
+                (pet.age += 1);
+                console.log(pet.name + ' is now ' + pet.age + ' years old! Happy birdthday!')
+            }
+            if (game.time % 10 === 0) {
+                pet.hunger += 1
+                pet.boredom += 1
+            }
 
-            // if amt of time % 3
-            	// if lights on
-            		// sleepier
-        		// else -- lights not on
-        			// get less sleepy
-            console.log(pet.name + ' is now ' + pet.age + ' years old! Happy birdthday!');
-        }, 60000)
+        }, 500)
+
     },
-    // sleep() {
-    //     if (game.lightsOn = true) {
-    //         setInterval(function() {
-    //             (pet.sleepiness += 1);
-    //         }, 3000)
-    //     } else {
-    //         if (game.lightsOn = false) {
-    //             setInterval(function() {
-    //                 (pet.sleepiness -= 1);
-    //             }, 3000)
-    //         }
-    //     }
-    // },
+
+    // if amt of time % 3
+    // if lights on
+    // sleepier
+    // else -- lights not on
+    // get less sleepy
+
     lightSwtich() {
         game.lightsOn = !game.lightsOn
     },
+
     feed() {
         pet.hunger -= 1
     },
+
     play() {
         pet.boredom -= 1
         console.log("You played peek'a'boo with " + pet.name + ".");
     },
+
     death() {
 
     }
