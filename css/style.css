@@ -7,7 +7,7 @@ body {
 h1 {
     text-align: center;
     font-family: 'Press Start 2P', cursive;
-    background-color: green;
+    background-color: rgba(0, 255, 0, 0.4);
 }
 
 #container {
@@ -28,19 +28,25 @@ h1 {
 }
 
 #buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding-top: 100px;
-    padding-bottom: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+    padding-top: 75px;
 }
 #feed,
 #play,
 #lightswitch {
-    background-color: crimson;
-    height: 100px;
-    width: 100px;
-    border-radius: 30%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+    font-family: 'Press Start 2P', cursive;
+	background-color: rgba(225, 0, 0, .7);
+	text-align: center;
+	height: 150px;
+	width: 150px;
+	margin-bottom: 5px;
+	border: solid 3px blue;
+	border-radius: 50%;
 }
 
 #form {
