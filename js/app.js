@@ -18,17 +18,32 @@ const game = {
 		console.log('Start Game initiated');
 		const petName = $('#petName').val()
 		pet.name = petName
-		setInterval(function(){ console.log("3 seconds have passed"); }, 3000);
-		setInterval(function(){ (pet.age += 1); }, 60000);
+		console.log(pet.name + ' has been born!');
+		setInterval(function(){ (pet.age += 1); }, 60000)
+		setInterval(function(){ console.log(pet.name + ' is now ' + pet.age + ' years old! Happy birdthday!'); }, 60000)
+		setInterval(function(){ (pet.hunger += 1); }, 60000)
+		setInterval(function(){ (pet.boredom += 1); }, 60000)
+		this.startGame(this.sleep())
 	},
-	feed () {
-
+	sleep () {
+		if(game.lightsOn = true){
+			setInterval(function(){ (pet.sleepiness += 1); }, 3000)
+		}else{
+			if(game.lightsOn = false){
+				setInterval(function(){ (pet.sleepiness -= 1); }, 3000)
+			}
+		}
 	},
 	lightSwtich () {
-
+		game.lightsOn = !game.lightsOn
+		game.sleep()
+	},
+	feed () {
+		pet.hunger -= 1
 	},
 	play () {
-
+		pet.boredom -= 1
+		console.log("You played peek'a'boo with " + pet.name + ".");
 	},
 	death () {
 
@@ -37,17 +52,17 @@ const game = {
 
 $('#feed').on('click', () => {
 	console.log('Feed button was clicked');
-	feed();
+	game.feed();
 })
 
 $('#lights').on('click', () => {
 	console.log('Lights button was clicked');
-	lightSwtich()
+	game.lightSwtich()
 })
 
 $('#play').on('click', () => {
 	console.log('Play button was clicked');
-	play()
+	game.play()
 })
 
 $('form').on('submit', (e) => {
