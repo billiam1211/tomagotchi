@@ -62,6 +62,13 @@ const game = {//game object
             		}
             	}
             };
+            // if (this.lightsOn = true){
+            // 	$('#lightswitch').css('backgroundColor', 'yellow')
+            // }else{
+            // 	if(this.lightsOn = false){
+            // 		$('#lightswitch').css('backgroundColor', 'black')
+            // 	}
+            // }
             if (this.time % 30 === 0) {//code to add 1 to pet age at a given interval
                 (pet.age += 1);
                 $('#age').text('Age: ' + pet.age)
@@ -90,21 +97,28 @@ const game = {//game object
     lightSwtich() {//function that changes the boolean value of lightsOn
         this.lightsOn = !this.lightsOn
         console.log(game.lightsOn);
+        if (this.lightsOn === true){
+			$('#lightswitch').css('backgroundColor', 'yellow')
+		}else{
+			if(this.lightsOn === false){
+				$('#lightswitch').css('backgroundColor', 'black')
+			}
+		}
     },
     feed() {//function to feed pet, removes 1 from hunger value
-        if (this.lightsOn = true) {
+        if (this.lightsOn === true) {
             pet.hunger -= 1
         } else {
-            console.log('Cannot feed ' + pet.name + ' while sleeping');
+            // console.log('Cannot feed ' + pet.name + ' while sleeping');
         }
     },
     play() {//play function to remove 1 from boredom pet property
         pet.boredom -= 1
-        console.log("You played peek'a'boo with " + pet.name + ".");
+        // console.log("You played peek'a'boo with " + pet.name + ".");
     },
     death() {//function ends the game when called and changes the image to 'game over'																	
         clearInterval(this.intervalId)
-        console.log(pet.name + ' has died...');
+        // console.log(pet.name + ' has died...');
         $('#tomagotchi').attr("src", "https://sumedh.files.wordpress.com/2013/11/gameoverbutton3.png") //changes tomagotchi image to game over image
     },
     moveLeft() {//animation for movement
@@ -121,7 +135,7 @@ const game = {//game object
     }
 }
 $('#feed').on('click', () => {//links feed button with feed function
-    console.log('Feed button was clicked');
+    // console.log('Feed button was clicked');
     game.feed();
 })
 
@@ -131,15 +145,15 @@ $('#lightswitch').on('click', () => {//links lights button to lights on/off func
 })
 
 $('#play').on('click', () => {//links the play button to play function
-    console.log('Play button was clicked');
+    // console.log('Play button was clicked');
     game.play()
 })
 
 $('form').on('submit', (e) => {//links the form submission to startGame function
     e.preventDefault();
-    console.log('form submitted');
+    // console.log('form submitted');
     const inputValue = $('#petName').val()
-    console.log(inputValue);
+    // console.log(inputValue);
     game.startGame();
 })
 // if (pet.hunger = 10 && pet.boredom = 10) {
