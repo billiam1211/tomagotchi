@@ -45,8 +45,11 @@ const game = {
             if (pet.age === 10) {
                 $('#tomagotchi').attr("src", "https://dumielauxepices.net/sites/default/files/super-mario-clipart-toad-mario-787431-2321641.png")
             }
-            if (pet.age === 15) {
-                $('#tomagotchi').attr("src", "https://www.mariowiki.com/images/7/7c/Toadsworth_artwork_--_Super_Mario_Sunshine.PNG")
+            if (pet.age === 10) {
+                $('#tomagotchi').attr("src", "https://sickr.files.wordpress.com/2018/07/captain_toad_treasure_tracker_happy_toad_artwork.png")
+            }
+            if (pet.age === 20) {
+            	$('#tomagotchi').attr("src", "https://www.mariowiki.com/images/7/7c/Toadsworth_artwork_--_Super_Mario_Sunshine.PNG")
             }
             if(pet.hunger >= 10 && pet.sleepiness >= 10){
             	game.death()
@@ -59,19 +62,19 @@ const game = {
             		}
             	}
             };
-            if (this.time % 60 === 0) {
+            if (this.time % 30 === 0) {
                 (pet.age += 1);
                 $('#age').text('Age: ' + pet.age)
             };
-            if (this.time % 10 === 0) {
+            if (this.time % 5 === 0) {
                 pet.hunger += 1
                 $('#hunger').text('Hunger: ' + pet.hunger)
             }
-            if (this.time % 17 === 0) {
+            if (this.time % 12 === 0) {
                 pet.boredom += 1
                 $('#boredom').text('Boredom: ' + pet.boredom)
             }
-            if (this.time % 30 === 0) {
+            if (this.time % 17 === 0) {
                 if (this.lightsOn === true) {
                     pet.sleepiness += 1
                     $('#sleepiness').text('Sleepiness: ' + pet.sleepiness)
@@ -79,11 +82,10 @@ const game = {
                     if (this.lightsOn === false) {
                         pet.sleepiness -= 1
                         $('#sleepiness').text('Sleepiness: ' + pet.sleepiness)
-
                     }
                 }
             };
-        }, 50)
+        }, 250)
     },
     lightSwtich() {
         this.lightsOn = !this.lightsOn
@@ -103,6 +105,7 @@ const game = {
     death() {
         clearInterval(this.intervalId)
         console.log(pet.name + ' has died...');
+        $('#tomagotchi').attr("src", "https://sumedh.files.wordpress.com/2013/11/gameoverbutton3.png")
     },
     moveLeft() {
         $('#tomagotchi').css("padding-left", 0)
