@@ -15,29 +15,50 @@ const game = {
     lightsOn: true,
     time: 0,
     movementTimer: 0,
+    intervalId: null,
     startGame() {
         console.log('Start Game initiated');
         const petName = $('#petName').val()
         pet.name = petName
         console.log(pet.name + ' has been born!');
         setInterval(() => {
-        	this.movementTimer += 1;
-            if(this.movementTimer % 1 === 0){
-            	this.moveLeft();
+            this.movementTimer += 1;
+            if (this.movementTimer % 1 === 0) {
+                this.moveLeft();
             }
-            if(this.movementTimer % 3 === 0){
-            	this.moveRight();
+            if (this.movementTimer % 3 === 0) {
+                this.moveRight();
             }
-            if(this.movementTimer % 3 === 0){
-            	this.moveUp();
+            if (this.movementTimer % 3 === 0) {
+                this.moveUp();
             }
-            if(this.movementTimer % 7 === 0){
-            	this.moveDown();
+            if (this.movementTimer % 7 === 0) {
+                this.moveDown();
             }
         }, 100)
-        setInterval(() => {
+        this.intervalId = setInterval(() => {
             this.time += 1;
             $('#time').text(this.time + ' min')
+            if (pet.age === 5) {
+                $('#tomagotchi').attr("src", "http://clipart-library.com/images/6Trjk7jTK.png")
+            }
+            if (pet.age === 10) {
+                $('#tomagotchi').attr("src", "https://dumielauxepices.net/sites/default/files/super-mario-clipart-toad-mario-787431-2321641.png")
+            }
+            if (pet.age === 15) {
+                $('#tomagotchi').attr("src", "https://www.mariowiki.com/images/7/7c/Toadsworth_artwork_--_Super_Mario_Sunshine.PNG")
+            }
+            if(pet.hunger >= 10 && pet.sleepiness >= 10){
+            	game.death()
+            }else{
+            	if(pet.hunger >= 10 && pet.boredom >= 10){
+            		game.death()
+            	}else{
+            		if(pet.boredom >= 10 && pet.sleepiness >= 10){
+            			game.death()
+            		}
+            	}
+            };
             if (this.time % 60 === 0) {
                 (pet.age += 1);
                 $('#age').text('Age: ' + pet.age)
@@ -45,7 +66,6 @@ const game = {
             if (this.time % 10 === 0) {
                 pet.hunger += 1
                 $('#hunger').text('Hunger: ' + pet.hunger)
-
             }
             if (this.time % 17 === 0) {
                 pet.boredom += 1
@@ -55,7 +75,6 @@ const game = {
                 if (this.lightsOn === true) {
                     pet.sleepiness += 1
                     $('#sleepiness').text('Sleepiness: ' + pet.sleepiness)
-
                 } else {
                     if (this.lightsOn === false) {
                         pet.sleepiness -= 1
@@ -64,7 +83,7 @@ const game = {
                     }
                 }
             };
-        }, 1000)        
+        }, 50)
     },
     lightSwtich() {
         this.lightsOn = !this.lightsOn
@@ -82,19 +101,20 @@ const game = {
         console.log("You played peek'a'boo with " + pet.name + ".");
     },
     death() {
+        clearInterval(this.intervalId)
         console.log(pet.name + ' has died...');
     },
     moveLeft() {
-    	$('#tomagotchi').css( "padding-left", 0)
+        $('#tomagotchi').css("padding-left", 0)
     },
-    moveRight () {
-    	$('#tomagotchi').css( "padding-left", 20)
+    moveRight() {
+        $('#tomagotchi').css("padding-left", 20)
     },
-    moveUp () {
-    	$('#tomagotchi').css( "padding-top", 0)
+    moveUp() {
+        $('#tomagotchi').css("padding-top", 0)
     },
     moveDown() {
-	    $('#tomagotchi').css( "padding-top", 10)
+        $('#tomagotchi').css("padding-top", 10)
     }
 }
 $('#feed').on('click', () => {
@@ -119,8 +139,6 @@ $('form').on('submit', (e) => {
     console.log(inputValue);
     game.startGame();
 })
-
-
 // if (pet.hunger = 10 && pet.boredom = 10) {
 // 		    this.death()
 // 		} else {

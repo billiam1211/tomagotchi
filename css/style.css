@@ -1,40 +1,41 @@
 body {
     background-color: lightblue;
-    background: url(https://1001freedownloads.s3.amazonaws.com/vector/412448/preview/wm_06-01.jpg)
-}
+    background: url(http://www.desktopimages.org/pictures/2013/0924/1/video-games-mario-bros-super-background-719100.jpg);
+    background-position: center;
+    background-size: cover;
 
-
+/*    background: url(https://1001freedownloads.s3.amazonaws.com/vector/412448/preview/wm_06-01.jpg)
+*/}
 h1 {
     text-align: center;
     font-family: 'Press Start 2P', cursive;
-    background-color: rgba(0, 255, 0, 0.4);
+    background-color: rgba(0, 255, 0, 0.6);
 }
-
 #container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
-
 #toadsWorld {
 	diplay: flex;
 	flex-direction: row;
 	height: 300px;
 	justify-content: space-around;
-	background-color: rgba(0, 150, 0, 0.3)
-}
-
+/*	background-color: rgba(0, 150, 0, 0.3)
+*/}
 #toadDiv {
     display: flex;
     justify-content: center;
     /*background-color: rgba(0, 0, 25, .4)*/
 }
-
+#yoshi{
+    display: flex;
+    justify-content: center;
+}
 #tomagotchi {
     height: 300px;
     width: 300px;
 }
-
 #buttons {
 	display: flex;
 	flex-direction: row;
@@ -48,13 +49,13 @@ h1 {
 	flex-direction: column;
 	justify-content: space-around;
     font-family: 'Press Start 2P', cursive;
-	background-color: rgba(225, 0, 0, .7);
+	background-color: rgba(225, 0, 0, .9);
 	text-align: center;
 	height: 150px;
 	width: 150px;
 	margin-bottom: 5px;
 	border: solid 3px blue;
-	border-radius: 50%;
+	border-radius: 30%;
 }
 
 #form {
